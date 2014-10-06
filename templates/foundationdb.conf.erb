@@ -1,0 +1,77 @@
+# foundationdb.conf
+##
+## Configuration file for FoundationDB server processes
+## Full documentation is available at
+## https://foundationdb.com/documentation/configuration.html#foundationdb-conf
+
+[fdbmonitor]
+<% if @fdbuser -%>
+user = <%= fdbuser  %>
+<% end -%>
+<% if @fdbgroup -%>
+group = <%= fdbgroup %>
+<% end -%>
+
+[general]
+<% if @restart_delay -%>
+restart_delay = <%= restart_delay  %>
+<% end -%>
+<% if @cluster_file -%>
+cluster_file = <%= cluster_file %>
+<% end -%>
+
+## Default parameters for individual fdbserver processes
+[fdbserver]
+<% if @fdb_command -%>
+command = <%= fdb_command %>
+<% end -%>
+<% if @public_address -%>
+public_address = <%= public_address %>
+<%end -%>
+<% if @listen_address -%>
+listen_address = <%= listen_address %>
+<% end -%>
+<% if @data_dir -%>
+datadir = <%= data_dir %>
+<% end -%>
+<% if @log_dir -%>
+logdir = <%= log_dir %>
+<% end -%>
+<% if @log_size -%>
+logsize = <%= log_size %>
+<% end -%>
+<% if @max_logs_size -%>
+maxlogssize = <%= max_logs_size %>
+<% end -%>
+<% if @machine_id -%>
+machine_id = <%= machine_id %>
+<% end -%>
+<% if @datacenter_id -%>
+datacenter_id = <%= datacenter_id %>
+<% end -%>
+<% if @fdbclass -%>
+class = <%= fdbclass %>
+<% end -%>
+<% if @memory -%>
+memory = <%= memory %>
+<% end -%>
+<% if @storage_memory -%>
+storage_memory = <%= storage_memory %>
+<% end -%>
+
+## An individual fdbserver process with id 4500
+## Parameters set here override defaults from the [fdbserver] section
+<% if @num_fdb_processes -%>
+<% num_fdb_processes.to_i.times do |fdb_process_num| -%>
+[fdbserver.<%= 4500 + fdb_process_num %>]
+<% end -%>
+<% end -%>
+
+[backup_agent]
+<% if @backup_agent -%>
+command = <%= backup_agent %>
+<% end -%>
+
+<% num_backup_agents.to_i.times do |backup_agent_num| -%>
+[backup_agent.<%= backup_agent_num += 1 %>]
+<% end -%>
