@@ -16,7 +16,7 @@ Puppet module to manage FoundationDB [FoundationDB](https://foundationdb.com/)
 This module currently requires RedHat/CentOS.  Pull requests to extend it for other OS's gratefully accepted.
 
 ### FoundationDB Packages
-This requires that you have the FoundationDB packages in a repo.  Hopefully FoundationDB themselves will provide this at some point in the future.  Until such time, download the FDB packages (client and server) and place them in your own, private repository.  Do not host these packages publicly, respect the FoundationDB license agreement.
+This requires that you have the FoundationDB packages in a repo.  Hopefully FoundationDB themselves will provide this at some point in the future.  Until such time, download the FDB packages (client and server) and place them in your own, private repository.  Respect the FoundationDB license agreement; do not host these packages publicly.
 
 You can either edit the params.pp and set `$package_source` to the repositoy URL, set it manually in your manifests somewhere, or better use Hiera and create a Profile for FoundationDb that will inject your custom repository source.
 
