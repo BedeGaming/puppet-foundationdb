@@ -1,3 +1,7 @@
+# = Class: FoundationDB
+#
+# This class provides for some basics needed for running FoundationDB
+#
 class foundationdb (
   $fdbuser              = $foundationdb::params::fdbuser,
   $fdbgroup             = $foundationdb::params::fdbgroup,

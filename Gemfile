@@ -8,6 +8,6 @@ end
 
 gem 'rake'
 gem 'puppet-lint'
-gem 'rspec-puppet'
+gem 'rspec-puppet', :git => 'git@github.com:rodjek/rspec-puppet.git'
 gem 'puppetlabs_spec_helper'
 gem 'puppet', puppetversion
