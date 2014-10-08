@@ -17,7 +17,7 @@ class foundationdb::params {
   $machine_id           = undef
   $datacenter_id        = undef
   $fdbclass             = undef
-  $memory               = undef
+  $fdbmemory            = undef
   $storage_memory       = undef
 
   $num_fdb_processes    = 1
@@ -32,5 +32,7 @@ class foundationdb::params {
 
   $fdb_config_path      = '/etc/foundationdb'
   $fdb_config_file      = 'foundationdb.conf'
+
+  $service_ensure	= 'running'
 
 }
