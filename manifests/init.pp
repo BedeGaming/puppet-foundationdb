@@ -24,7 +24,7 @@ class foundationdb (
   $manage_repo          = $foundationdb::params::manage_repo,
   $fdb_config_path      = $foundationdb::params::fdb_config_path,
   $fdb_config_file      = $foundationdb::params::fdb_config_file,
-  $service_ensure	= $foundationdb::params::service_ensure,
+  $service_ensure       = $foundationdb::params::service_ensure,
 ) inherits foundationdb::params {
 
   class { 'foundationdb::package': }->

@@ -33,6 +33,6 @@ class foundationdb::params {
   $fdb_config_path      = '/etc/foundationdb'
   $fdb_config_file      = 'foundationdb.conf'
 
-  $service_ensure	= 'running'
+  $service_ensure       = 'running'
 
 }
