@@ -6,7 +6,13 @@ describe 'foundationdb' do
 
   it {
     should contain_class('foundationdb::package')
+  }
+
+  it {
     should contain_class('foundationdb::config')
+  }
+
+  it {
     should contain_class('foundationdb::service')
   }
 
