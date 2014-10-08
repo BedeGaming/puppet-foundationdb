@@ -1,8 +1,8 @@
 class foundationdb::package(
-  $package_name   = 'foundationdb',
-  $package_source = 'foundationdb',
-  $package_ensure = 'present',
-  $manage_repo    = true,
+  $package_ensure       = $foundationdb::package_ensure,
+  $package_name         = $foundationdb::package_name,
+  $package_source       = $foundationdb::package_source,
+  $manage_repo          = $foundationdb::manage_repo,
 ) {
 
   anchor { 'foundationdb::package::begin': }
