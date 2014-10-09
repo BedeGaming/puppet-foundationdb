@@ -1,3 +1,8 @@
+# Class: foundationdb::params
+#
+# Class to contain and manage FDB defaults.
+#
+
 class foundationdb::params {
 
   $fdbuser              = 'foundationdb'
@@ -33,6 +38,6 @@ class foundationdb::params {
   $fdb_config_path      = '/etc/foundationdb'
   $fdb_config_file      = 'foundationdb.conf'
 
-  $service_ensure	= 'running'
+  $service_ensure       = 'running'
 
 }

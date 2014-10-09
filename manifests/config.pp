@@ -1,3 +1,9 @@
+# Class: foundationdb::config
+#
+# This class managed the FoundationDB config file:
+# /etc/foundationdb/foundationdb.conf (RedHat and derivitives)
+#
+
 class foundationdb::config (
   $fdbuser              = $foundationdb::fdbuser,
   $fdbgroup             = $foundationdb::fdbgroup,
@@ -27,10 +33,10 @@ class foundationdb::config (
 ) {
 
   file { "${fdb_config_path}/${fdb_config_file}":
-    content  => template('foundationdb/foundationdb.conf.erb'),
-    owner    => $fdbuser,
-    group    => $fdbgroup,
-    mode     => 0755,
+    content => template('foundationdb/foundationdb.conf.erb'),
+    owner   => $fdbuser,
+    group   => $fdbgroup,
+    mode    => '0755',
   }
 
 }

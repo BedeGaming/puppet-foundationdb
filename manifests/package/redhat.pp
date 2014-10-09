@@ -1,3 +1,7 @@
+# Class: foundationdb:package::redhat
+#
+# Class to manage the Foundationdb packages installation on RedHat systems
+#
 class foundationdb::package::redhat (
   $manage_repo    = true,
   $package_ensure = 'present',

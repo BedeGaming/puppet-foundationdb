@@ -1,0 +1,17 @@
+{
+  "name": "bedegaming-foundationdb",
+  "version": "0.0.1",
+  "author": "Rob Rankin",
+  "license": "Licensed under (Apache 2.0)",
+  "summary": "A module for managing FoundationDB",
+  "source": "https://github.com/BedeGaming/puppet-foundationdb",
+  "project_page": "(ihttps://github.com/BedeGaming/puppet-foundationdb)",
+  "issues_url": "",
+  "tags": ["foundationdb", "fdb"],
+  "operatingsystem_support": [
+    {
+    "operatingsystem":"RedHat",
+    "operatingsystemrelease":[ "6.0" ]
+    }
+   ]
+}

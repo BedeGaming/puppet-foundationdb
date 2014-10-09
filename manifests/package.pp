@@ -1,3 +1,9 @@
+# Class: foundationdb:package
+#
+# Class to manage the Foundationdb packages installation.
+#
+# Requires a (yum) repo somewhere passed in as $package_source.
+#
 class foundationdb::package(
   $package_ensure       = $foundationdb::package_ensure,
   $package_name         = $foundationdb::package_name,
@@ -5,18 +11,13 @@ class foundationdb::package(
   $manage_repo          = $foundationdb::manage_repo,
 ) {
 
-  anchor { 'foundationdb::package::begin': }
-  anchor { 'foundationdb::package::end': }
-
   case $::osfamily {
-    'redhat': {
+    'RedHat': {
       class { 'foundationdb::package::redhat':
         package_source => $package_source,
         manage_repo    => $manage_repo,
         package_ensure => $package_ensure,
         package_name   => $package_name,
-        require        => Anchor['foundationdb::package::begin'],
-        before         => Anchor['foundationdb::package::end'],
       }
     }
     default: {
