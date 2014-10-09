@@ -37,7 +37,8 @@ class foundationdb (
 ) inherits foundationdb::params {
 
   class { 'foundationdb::package': }->
-  class { 'foundationdb::config': }~>
-  class { 'foundationdb::service': }
+  class { 'foundationdb::config': }
+
+# We don't need puppet to manage the service on config file changes.
 
 }
