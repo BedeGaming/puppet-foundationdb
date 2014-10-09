@@ -53,7 +53,7 @@ Hiera data source
 foundationdb::package_source      : '<Repo for packages>'
 ```
 
-Using [Automatic Paramater Lookup](https://docs.puppetlabs.com/hiera/1/puppet.html#automatic-parameter-lookup)
+Using [Automatic Parameter Lookup](https://docs.puppetlabs.com/hiera/1/puppet.html#automatic-parameter-lookup)
 
 ```
 class { 'foundationdb':
