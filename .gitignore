@@ -1,0 +1,6 @@
+pkg/
+.librarian/
+.tmp/
+Gemfile.lock
+spec/fixtures/
+/metadata.json
