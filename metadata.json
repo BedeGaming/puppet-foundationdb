@@ -2,7 +2,7 @@
   "name": "bedegaming-foundationdb",
   "version": "0.0.1",
   "author": "Rob Rankin",
-  "license": "Licensed under (Apache 2.0)",
+  "license": "MIT License",
   "summary": "A module for managing FoundationDB",
   "source": "https://github.com/BedeGaming/puppet-foundationdb",
   "project_page": "(ihttps://github.com/BedeGaming/puppet-foundationdb)",
