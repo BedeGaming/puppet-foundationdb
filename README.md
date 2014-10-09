@@ -44,11 +44,9 @@ Hiera data source
 foundationdb::package_source      : '<Repo for packages>'
 ```
 
-Puppet Profile using [Automatic Parameter Lookup](https://docs.puppetlabs.com/hiera/1/puppet.html#automatic-parameter-lookup)
+Using [Automatic Paramter Lookup](https://docs.puppetlabs.com/hiera/1/puppet.html#automatic-parameter-lookup)
 ```
-class profile::foundationdb {
-  class { '::foundationdb':
-    package_source  => $package_source
-  }
+class { 'foundationdb':
+  package_source  => $package_source
 }
 ```
