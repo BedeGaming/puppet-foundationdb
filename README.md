@@ -37,7 +37,7 @@ class { 'foundationdb':
 }
 ```
 
-### Puppet Profile using Hiera for FoundationDB
+### Using Hiera for FoundationDB
 
 Hiera data source
 ```
