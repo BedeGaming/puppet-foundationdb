@@ -1,3 +1,9 @@
+# Class: foundationdb:package
+#
+# Class to manage the Foundationdb packages installation.
+#
+# Requires a (yum) repo somewhere passed in as $package_source.
+#
 class foundationdb::package(
   $package_ensure       = $foundationdb::package_ensure,
   $package_name         = $foundationdb::package_name,

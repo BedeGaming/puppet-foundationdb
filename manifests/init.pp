@@ -1,7 +1,12 @@
-# = Class: FoundationDB
+# Class: foundationdb
 #
-# This class provides for some basics needed for running FoundationDB
+# Pupper module to install and manage FoundationDB
 #
+# Sample Usage:
+#
+# node example {
+#   include foundationdb 
+# }
 class foundationdb (
   $fdbuser              = $foundationdb::params::fdbuser,
   $fdbgroup             = $foundationdb::params::fdbgroup,

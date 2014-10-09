@@ -1,3 +1,8 @@
+# Class: foundationdb::params
+#
+# Class to contain and manage FDB defaults.
+#
+
 class foundationdb::params {
 
   $fdbuser              = 'foundationdb'

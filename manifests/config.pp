@@ -1,3 +1,8 @@
+# Class: foundationdb::config
+#
+# This class managed the FoundationDB config file, /etc/foundationdb/foundationdb.conf (RedHat and derivitives)
+#
+
 class foundationdb::config (
   $fdbuser              = $foundationdb::fdbuser,
   $fdbgroup             = $foundationdb::fdbgroup,
