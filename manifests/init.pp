@@ -1,6 +1,6 @@
 # Class: foundationdb
 #
-# Pupper module to install and manage FoundationDB
+# Puppet module to install and manage FoundationDB
 #
 # Sample Usage:
 #
