@@ -39,6 +39,8 @@ class foundationdb (
   class { 'foundationdb::package': }->
   class { 'foundationdb::config': }
 
-# We don't need puppet to manage the service on config file changes.
+# We don't need puppet to manage the service on config file changes,
+# FoundationDB monitors its own config file for changes and refreshes
+# the service
 
 }
