@@ -36,9 +36,14 @@ class foundationdb (
   $service_ensure       = $foundationdb::params::service_ensure,
 ) inherits foundationdb::params {
 
-  class { 'foundationdb::package': }->
-  class { 'foundationdb::config': }
+  contain foundationdb::package
+  contain foundationdb::config
 
-# We don't need puppet to manage the service on config file changes.
+  Class['foundationdb::package']->
+  Class['foundationdb::config']
+
+# We don't need puppet to manage the service on config file changes,
+# FoundationDB monitors its own config file for changes and refreshes
+# the service
 
 }

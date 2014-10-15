@@ -3,6 +3,8 @@
 ##Overview
 Puppet module to manage [FoundationDB](https://foundationdb.com/)
 
+[![Build Status](https://travis-ci.org/BedeGaming/puppet-foundationdb.svg?branch=develop)](https://travis-ci.org/BedeGaming/puppet-foundationdb)
+
 ##Author
 * Rob Rankin <github@undertow.ca>
 
