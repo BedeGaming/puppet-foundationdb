@@ -3,10 +3,10 @@
 # Class to manage the Foundationdb packages installation on RedHat systems
 #
 class foundationdb::package::redhat (
-  $manage_repo    = true,
-  $package_ensure = 'present',
-  $package_name   = 'foundationdb',
-  $package_source = undef,
+  $manage_repo    = $foundationdb::package::manage_repo,
+  $package_ensure = $foundationdb::package::package_ensure,
+  $package_name   = $foundationdb::package::package_name,
+  $package_source = $foundationdb::package::package_source,
 ) {
 
   $package_client = "${package_name}-clients"

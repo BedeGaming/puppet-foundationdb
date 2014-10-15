@@ -13,12 +13,7 @@ class foundationdb::package(
 
   case $::osfamily {
     'RedHat': {
-      class { 'foundationdb::package::redhat':
-        package_source => $package_source,
-        manage_repo    => $manage_repo,
-        package_ensure => $package_ensure,
-        package_name   => $package_name,
-      }
+      contain foundationdb::package::redhat
     }
     default: {
       fail("Module ${module_name} is not supported on ${::operatingsystem}")
