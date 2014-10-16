@@ -8,6 +8,10 @@
 #   include foundationdb 
 # }
 class foundationdb (
+  $fdb_config_path      = $foundationdb::params::fdb_config_path,
+  $fdb_config_file      = $foundationdb::params::fdb_config_file,
+  $make_public          = $foundationdb::params::make_public,
+  $make_public_script   = $foundationdb::params::make_public_script,
   $fdbuser              = $foundationdb::params::fdbuser,
   $fdbgroup             = $foundationdb::params::fdbgroup,
   $restart_delay        = $foundationdb::params::restart_delay,
@@ -31,13 +35,15 @@ class foundationdb (
   $package_name         = $foundationdb::params::package_name,
   $package_source       = $foundationdb::params::package_source,
   $manage_repo          = $foundationdb::params::manage_repo,
-  $fdb_config_path      = $foundationdb::params::fdb_config_path,
-  $fdb_config_file      = $foundationdb::params::fdb_config_file,
   $service_ensure       = $foundationdb::params::service_ensure,
 ) inherits foundationdb::params {
 
   contain foundationdb::package
   contain foundationdb::config
+
+  if $make_public {
+    contain foundationdb::public
+  }
 
   Class['foundationdb::package']->
   Class['foundationdb::config']
