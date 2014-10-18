@@ -4,12 +4,15 @@
 #
 
 class foundationdb::params {
+  $fdb_config_path      = '/etc/foundationdb'
+  $fdb_config_file      = 'foundationdb.conf'
+  $fdb_cluster_file     = 'fdb.cluster'
 
   $fdbuser              = 'foundationdb'
   $fdbgroup             = 'foundationdb'
 
   $restart_delay        = 60
-  $cluster_file         = '/etc/foundationdb/fdb.cluster'
+  $cluster_file         = "${fdb_config_path}/${fdb_cluster_file}"
 
   $fdb_command          = '/usr/sbin/fdbserver'
   $public_address       = 'auto:$ID'
@@ -35,9 +38,9 @@ class foundationdb::params {
   $package_source       = undef
   $manage_repo          = true
 
-  $fdb_config_path      = '/etc/foundationdb'
-  $fdb_config_file      = 'foundationdb.conf'
 
   $service_ensure       = 'running'
+  $make_public          = false
+  $make_public_script   = '/usr/lib/foundationdb/make_public.py'
 
 }
