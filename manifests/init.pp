@@ -40,16 +40,14 @@ class foundationdb (
 
   contain foundationdb::package
   contain foundationdb::config
+  contain foundationdb::service
 
   if $make_public {
     contain foundationdb::public
   }
 
   Class['foundationdb::package']->
-  Class['foundationdb::config']
-
-# We don't need puppet to manage the service on config file changes,
-# FoundationDB monitors its own config file for changes and refreshes
-# the service
+  Class['foundationdb::config']~>
+  Class['foundationdb::service']
 
 }
