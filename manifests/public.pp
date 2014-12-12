@@ -15,7 +15,7 @@ class foundationdb::public (
 ) {
 
   exec { "${make_public_script}":
-    path   => "/bin:/usr/bin:/sbin:/usr/sbin",
+    path   => '/bin:/usr/bin:/sbin:/usr/sbin',
     onlyif => "grep '127.0.0.1' ${cluster_file}",
   }
 

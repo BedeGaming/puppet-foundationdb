@@ -5,6 +5,7 @@
 # Requires a (yum) repo somewhere passed in as $package_source.
 #
 class foundationdb::package(
+  $client_only          = $foundationdb::client_only,
   $package_ensure       = $foundationdb::package_ensure,
   $package_name         = $foundationdb::package_name,
   $package_source       = $foundationdb::package_source,
@@ -19,4 +20,5 @@ class foundationdb::package(
       fail("Module ${module_name} is not supported on ${::operatingsystem}")
     }
   }
+
 }
