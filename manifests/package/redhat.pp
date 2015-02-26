@@ -3,6 +3,7 @@
 # Class to manage the Foundationdb packages installation on RedHat systems
 #
 class foundationdb::package::redhat (
+  $client_only    = $foundationdb::package::client_only,
   $manage_repo    = $foundationdb::package::manage_repo,
   $package_ensure = $foundationdb::package::package_ensure,
   $package_name   = $foundationdb::package::package_name,
@@ -19,7 +20,6 @@ class foundationdb::package::redhat (
       enabled  => '1',
       gpgcheck => '0',
       priority => '1',
-      before   => [ Package[$package_client], Package[$package_server] ],
     }
 
     file { '/etc/yum.repos.d/foundationdb-release.repo':
@@ -28,11 +28,20 @@ class foundationdb::package::redhat (
     }
   }
 
-  package { $package_client:
-    ensure  => $package_ensure,
-  }->
-  package { $package_server:
-    ensure  => $package_ensure,
+  if $client_only {
+    package { $package_client:
+      ensure  => $package_ensure,
+      require => Yumrepo['foundationdb-release']
+    }
+  } else {
+    package { $package_client:
+      ensure  => $package_ensure,
+      require => Yumrepo['foundationdb-release']
+    }->
+    package { $package_server:
+      ensure  => $package_ensure,
+      require => Yumrepo['foundationdb-release']
+    }
   }
 
 }

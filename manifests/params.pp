@@ -4,6 +4,9 @@
 #
 
 class foundationdb::params {
+  $server               = true
+  $client_only          = false
+
   $fdb_config_path      = '/etc/foundationdb'
   $fdb_config_file      = 'foundationdb.conf'
   $fdb_cluster_file     = 'fdb.cluster'

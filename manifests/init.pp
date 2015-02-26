@@ -8,6 +8,7 @@
 #   include foundationdb 
 # }
 class foundationdb (
+  $client_only          = $foundationdb::params::client_only,
   $fdb_config_path      = $foundationdb::params::fdb_config_path,
   $fdb_config_file      = $foundationdb::params::fdb_config_file,
   $make_public          = $foundationdb::params::make_public,
@@ -40,16 +41,14 @@ class foundationdb (
 
   contain foundationdb::package
   contain foundationdb::config
+  contain foundationdb::service
 
   if $make_public {
     contain foundationdb::public
   }
 
   Class['foundationdb::package']->
-  Class['foundationdb::config']
-
-# We don't need puppet to manage the service on config file changes,
-# FoundationDB monitors its own config file for changes and refreshes
-# the service
+  Class['foundationdb::config']~>
+  Class['foundationdb::service']
 
 }
