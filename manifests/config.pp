@@ -39,13 +39,13 @@ class foundationdb::config (
     mode    => '0755',
   }
 
-  # Base dir managed outside this module
-  #  $directory = dirname($data_dir)
-  #file { "${directory}":
-  #  ensure => present,
-  #  owner  => $fdbuser,
-  #  group  => $fdbgroup,
-  #  mode   => '0755',
-  #}
+  $directory = dirname($data_dir)
+  file { "${directory}-fdb":
+    path   => $directory,
+    ensure => present,
+    owner  => $fdbuser,
+    group  => $fdbgroup,
+    mode   => '0755',
+  }
 
 }
