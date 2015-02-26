@@ -40,7 +40,7 @@ class foundationdb::config (
   }
 
   $directory = dirname($data_dir)
-  file { "${directory}-fdb":
+  file { "${directory}":
     path   => $directory,
     ensure => present,
     owner  => $fdbuser,
