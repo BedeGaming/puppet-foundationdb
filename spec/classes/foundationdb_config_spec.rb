@@ -26,7 +26,7 @@ describe 'foundationdb::config' do
   )}
 
   it { is_expected.to contain_file('/var/lib/foundationdb').with(
-          'ensure' => 'present',
+          'ensure' => 'directory',
           'owner'  => 'foundationdb',
           'group'  => 'foundationdb',
           'mode'   => '0755',
