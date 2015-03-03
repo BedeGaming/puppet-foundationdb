@@ -9,7 +9,6 @@ Puppet module to manage [FoundationDB](https://foundationdb.com/)
 * Rob Rankin <github@undertow.ca>
 
 ## To Do
-* [Tests](https://github.com/BedeGaming/puppet-foundationdb/issues/5)
 * [Cluster Membership](https://github.com/BedeGaming/puppet-foundationdb/issues/6)
 
 ## Requirements
@@ -20,7 +19,7 @@ This module currently requires RedHat/CentOS.  Pull requests to extend it for ot
 ### FoundationDB Packages
 This requires that you have the FoundationDB packages in a repo.  Hopefully FoundationDB themselves will provide this at some point in the future.  Until such time, download the FDB packages (client and server) and place them in your own, private repository.  Respect the FoundationDB license agreement; do not host these packages publicly.
 
-You can either edit the params.pp and set `$package_source` to the repositoy URL, set it manually in your manifests somewhere, or better use Hiera and create a Profile for FoundationDb that will inject your custom repository source.
+You can either edit the params.pp and set `$package_source` to the repositoy URL, set it manually in your manifests somewhere, or better use Hiera to configure your custom repository source.
 
 ## Module Uses
 
@@ -49,16 +48,22 @@ class { 'foundationdb':
 
 ### Using Hiera for FoundationDB
 
-Hiera data source
+Hiera examples
 
 ```
-foundationdb::package_source      : '<Repo for packages>'
+foundationdb::package_source    : '<Repo for packages>'
+foundationdb::fdbuser           : 'foundationdb'
+foundationdb::fdbgroup          : 'foundationdb'
+foundationdb::restart_delay     : 60
+foundationdb::cluster_file      : '/etc/foundationdb/fdb.cluster'
+foundationdb::fdb_command       : '/usr/sbin/fdbserver'
+foundationdb::public_address    : 'auto:$ID'
+foundationdb::listen_address    : 'public'
+foundationdb::data_dir          : '/mnt/resource/$ID'
+foundationdb::num_fdb_processes : 1
+foundationdb::backup_agent      : '/usr/lib/foundationdb/backup_agent/backup_agent'
+foundationdb::num_backup_agents : 1
+foundationdb::package_name      : 'foundationdb'
+foundationdb::make_public       : true
 ```
 
-Using [Automatic Parameter Lookup](https://docs.puppetlabs.com/hiera/1/puppet.html#automatic-parameter-lookup)
-
-```
-class { 'foundationdb':
-  package_source  => $package_source
-}
-```
