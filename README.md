@@ -1,5 +1,7 @@
 #FoundationDB
 
+FoundationDB has been purchased by Apple, and is no longer a product.  Apple will be cancelling all support contracts and apprently not continuing to offer FDB for sale.  Therefore this module is of course deprecated and no longer support (at least by me!).
+
 ##Overview
 Puppet module to manage [FoundationDB](https://foundationdb.com/)
 
