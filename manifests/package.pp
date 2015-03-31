@@ -16,6 +16,9 @@ class foundationdb::package(
     'RedHat': {
       contain foundationdb::package::redhat
     }
+    'Debian': {
+      contain foundationdb::package::vagrant-fileshare
+    }
     default: {
       fail("Module ${module_name} is not supported on ${::operatingsystem}")
     }

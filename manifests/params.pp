@@ -43,7 +43,7 @@ class foundationdb::params {
 
 
   $service_ensure       = 'running'
-  $make_public          = false
+  $make_public          = true
   $make_public_script   = '/usr/lib/foundationdb/make_public.py'
 
 }
