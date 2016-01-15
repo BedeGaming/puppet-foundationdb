@@ -5,7 +5,7 @@
 # Sample Usage:
 #
 # node example {
-#   include foundationdb 
+#   include foundationdb
 # }
 class foundationdb (
   $client_only          = $foundationdb::params::client_only,
@@ -21,6 +21,7 @@ class foundationdb (
   $public_address       = $foundationdb::params::public_address,
   $listen_address       = $foundationdb::params::listen_address,
   $data_dir             = $foundationdb::params::data_dir,
+  $ensure_data_dir      = $foundationdb::params::ensure_data_dir,
   $log_dir              = $foundationdb::params::log_dir,
   $log_size             = $foundationdb::params::log_size,
   $max_logs_size        = $foundationdb::params::max_logs_size,

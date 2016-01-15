@@ -15,6 +15,7 @@ class foundationdb::config (
   $public_address       = $foundationdb::public_address,
   $listen_address       = $foundationdb::listen_address,
   $data_dir             = $foundationdb::data_dir,
+  $ensure_data_dir      = $foundationdb::ensure_data_dir,
   $log_dir              = $foundationdb::log_dir,
   $log_size             = $foundationdb::log_size,
   $max_logs_size        = $foundationdb::max_logs_size,
@@ -39,13 +40,15 @@ class foundationdb::config (
     mode    => '0755',
   }
 
-  $directory = dirname($data_dir)
-  file { "${directory}":
-    path   => $directory,
-    ensure => directory,
-    owner  => $fdbuser,
-    group  => $fdbgroup,
-    mode   => '0755',
+  if ($ensure_data_dir) {
+    $directory = dirname($data_dir)
+    file { "${directory}":
+      path   => $directory,
+      ensure => directory,
+      owner  => $fdbuser,
+      group  => $fdbgroup,
+      mode   => '0755',
+    }
   }
 
 }

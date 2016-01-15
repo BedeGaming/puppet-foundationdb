@@ -21,6 +21,7 @@ class foundationdb::params {
   $public_address       = 'auto:$ID'
   $listen_address       = 'public'
   $data_dir             = '/var/lib/foundationdb/data/$ID'
+  $ensure_data_dir      = true
   $log_dir              = '/var/log/foundationdb'
 
   $log_size             = undef
